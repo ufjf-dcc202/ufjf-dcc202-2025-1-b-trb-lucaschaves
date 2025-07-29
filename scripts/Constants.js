@@ -10,3 +10,14 @@ const TILE_STATES = {
 
 // Gambiarra pra se comportar como enum
 Object.freeze(TILE_STATES);
+
+// Mesma gambiarra para as ferramentas
+const TOOLS = {
+    HAND: 'hand',
+    SHOVEL: 'shovel',
+    HOE: 'hoe',
+    WATERING_CAN: 'watering-can',
+    SICKLE: 'sickle'
+};
+
+Object.freeze(TOOLS);

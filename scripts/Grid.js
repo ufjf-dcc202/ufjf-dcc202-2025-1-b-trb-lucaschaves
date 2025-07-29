@@ -1,15 +1,16 @@
 class Grid {
-    constructor(containerElement, size) {
+    constructor(containerElement, size, onTileClickCallback) {
         this.containerElement = containerElement;
         this.size = size;
         this.tiles = [];
+        this.onTileClickCallback = onTileClickCallback;
     }
 
     initialize() {
         for (let x = 0; x < this.size; x++) {
             const column = [];
             for (let y = 0; y < this.size; y++) {
-                const tile = new Tile(x, y);
+                const tile = new Tile(x, y, this.onTileClickCallback);
                 const random = Math.random();
                 // Cria alguns tiles aleatoriamente com pedras e ervas daninhas
                 if (random < 0.1) {

@@ -27,3 +27,24 @@
 .tile.weed {
     background-color: #2e8b57;
 }
+
+#tool-selection {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tool-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #5a3825;
+    background-color: #f0e4d0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tool-button.active {
+    background-color: #a16642;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}

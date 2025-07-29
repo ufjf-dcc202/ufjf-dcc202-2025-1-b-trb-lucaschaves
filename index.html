@@ -12,16 +12,22 @@
         <div id="grid-container"></div>
         <div id="ui-container">
             <h2>Ferramentas</h2>
-            <div id="seed-selection">
-                </div>
+            <div id="tool-selection">
+                <button class="tool-button" data-tool="hand">🖐️ Mão</button>
+                <button class="tool-button" data-tool="hoe">⛏️ Enxada</button>
+                <button class="tool-button" data-tool="shovel">🪏 Pá</button>
+                <button class="tool-button" data-tool="watering-can">🚿 Regador</button>
+                <button class="tool-button" data-tool="sickle">☭ Foice</button>
+            </div>
+            <div id="seed-selection"></div>
             <h2>Status</h2>
             <p>Dinheiro: <span id="money-display">100</span></p>
             <button id="next-day-button">Passar o Dia</button>
         </div>
     </main>
-    <script src="scripts/Main.js"></script>
+    <script src="scripts/Constants.js"></script>
     <script src="scripts/Tile.js"></script>
     <script src="scripts/Grid.js"></script>
-    <script src="scripts/States.js"></script>
+    <script src="scripts/Main.js"></script>
 </body>
 </html>

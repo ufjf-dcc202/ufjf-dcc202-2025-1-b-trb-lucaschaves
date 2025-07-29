@@ -1,5 +1,5 @@
 class Tile {
-    constructor(x, y) {
+    constructor(x, y, onClickCallback) {
         // Coordenadas do tile na grid
         this.x = x;
         this.y = y;
@@ -9,6 +9,7 @@ class Tile {
         this.element.classList.add('tile');
         // Da um id unico para eles baseado nas coords
         this.element.id = `tile-${x}-${y}`;
+        this.element.addEventListener('click', () => onClickCallback(this));
     }
 
     // Metodo para atualizar estados e aparencia do tile
@@ -22,5 +23,5 @@ class Tile {
         if (this.state !== TILE_STATES.EMPTY) {
             this.element.classList.add(this.state);
         }
-    };
+    }
 };
