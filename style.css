@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'KiwiSoda';
+    src: url('/public/KiwiSoda.ttf');
+}
+
 * {
     background-color: aliceblue;
+    font-family: KiwiSoda;
 }
 
 #game-container {

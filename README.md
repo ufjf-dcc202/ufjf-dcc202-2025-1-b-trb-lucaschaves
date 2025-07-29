@@ -37,3 +37,8 @@ A avaliação vai constar de:
 - apresentação do trabalho;
 - originalidade;
 - domínio do código por ambos os membros da dupla.
+
+---
+
+Créditos:
+- Fonte [KiwiSoda](https://fontenddev.com/fonts/kiwi-soda/)
