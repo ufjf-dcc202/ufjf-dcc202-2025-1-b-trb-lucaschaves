@@ -17,7 +17,7 @@ class Tile {
     update() {
         const states = Object.values(TILE_STATES);
         // Remove qualquer estado que estiver associado ao tile
-        this.element.classList.remove(states);
+        this.element.classList.remove(...states);
 
         // Adiciona novo estado
         if (this.state !== TILE_STATES.EMPTY) {
