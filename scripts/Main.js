@@ -12,10 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 tile.state = TILE_STATES.EMPTY;
             }
         } 
-        // Lógica da Enxada: Prepara o solo.
+        // Lógica da Enxada: Prepara o solo
         else if (gameState.selectedTool === TOOLS.HOE) {
             if (tile.state === TILE_STATES.EMPTY) {
                 tile.state = TILE_STATES.TILLED;
+            }
+        }
+
+        // Lógica do Regador: Aguar o solo arado
+        else if (gameState.selectedTool === TOOLS.WATERING_CAN) {
+            if (tile.state === TILE_STATES.TILLED) {
+                tile.state = TILE_STATES.WATERED;
             }
         }
         

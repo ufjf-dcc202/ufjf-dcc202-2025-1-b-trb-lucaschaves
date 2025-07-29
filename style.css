@@ -34,6 +34,14 @@
     background-color: #2e8b57;
 }
 
+.tile.tilled {
+    background-color: #a35d31;
+}
+
+.tile.watered {
+    background-color: #58331d;
+}
+
 #tool-selection {
     display: flex;
     gap: 10px;
