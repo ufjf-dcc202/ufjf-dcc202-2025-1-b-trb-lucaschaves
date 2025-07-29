@@ -3,9 +3,26 @@
     src: url('/public/KiwiSoda.ttf');
 }
 
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('/public/PressStart2P.ttf');
+}
+
 * {
     background-color: aliceblue;
+    font-family: PressStart2P;
+    color:#2b2424
+}
+
+h1 {
+    font-size: 3.5rem;
     font-family: KiwiSoda;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-family: KiwiSoda;
+    margin-bottom: 10px;
 }
 
 #game-container {
@@ -15,27 +32,32 @@
 
 #grid-container {
     display: grid;
-    width: 600px;
-    height: 600px;
-    border: 2px solid #5a3825;
+    width: 850px;
+    height: 850px;
+    border: 3px solid #5a3825;
 }
 
 #money-text {
-    font-size: 30px;
+    font-size: 2rem;
+    margin-top: 5px;
 }
 
 #money-display {
-    font-size: 40px;
+    font-size: 3rem;
     text-decoration: underline;
 }
 
 #next-day-button {
     padding: 10px 15px;
-    font-size: 18px;
-    border: 2px solid #5a3825;
+    font-size: 2rem;
+    border: 4px solid #5a3825;
     background-color: #f0e4d0;
-    border-radius: 8px;
+    border-radius: 16px;
     cursor: pointer;
+}
+
+hr {
+    border-top: 10px solid #5a3825;
 }
 
 /* TODO: Fazer sprites para os tile e plantas */
@@ -68,11 +90,17 @@
 
 .tool-button {
     padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #5a3825;
+    font-size: 1.3rem;
+    border: 4px solid #5a3825;
     background-color: #f0e4d0;
-    border-radius: 8px;
+    border-radius: 16px;
     cursor: pointer;
+}
+
+/*Fix pro icone da enxada que é mto pequeno*/
+#sickle-icon {
+    font-size: 1.7rem;
+    background-color: #f0e4d0;
 }
 
 .tool-button.active {
@@ -89,10 +117,10 @@
 
 .seed-button {
     padding: 10px 15px;
-    font-size: 18px;
-    border: 2px solid #5a3825;
+    font-size: 1.7rem;
+    border: 4px solid #5a3825;
     background-color: #f0e4d0;
-    border-radius: 8px;
+    border-radius: 16px;
     cursor: pointer;
 }
 
@@ -103,10 +131,10 @@
 }
 
 .seed-button > p {
-    font-size: 20px;
-    border: 2px solid #5a3825;
+    font-size: 1.3rem;
+    border: 4px solid #5a3825;
     background-color: #ebd5b0;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .seed-button.active > p {
