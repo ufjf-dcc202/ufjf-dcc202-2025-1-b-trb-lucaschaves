@@ -21,3 +21,30 @@ const TOOLS = {
 };
 
 Object.freeze(TOOLS);
+
+// Plantas possíveis, se pa adiciono mais
+const PLANT_DATA = {
+        feijao: {
+        name: 'Feijão',
+        growthStages: 3, // 3 fases de crescimento 
+        price: 10,
+        harvestValue: 30,
+        icon: '🫘'
+    },
+    tomate: {
+        name: 'Tomate',
+        growthStages: 4,
+        price: 15,
+        harvestValue: 50,
+        icon: '🍅'
+    },
+        mandioca: {
+        name: 'Mandioca',
+        growthStages: 5,
+        price: 25,
+        harvestValue: 100,
+        icon: '🌱'
+    },
+}
+
+Object.freeze(PLANT_DATA);

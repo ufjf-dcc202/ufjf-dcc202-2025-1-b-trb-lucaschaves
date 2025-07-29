@@ -20,6 +20,24 @@
     border: 2px solid #5a3825;
 }
 
+#money-text {
+    font-size: 30px;
+}
+
+#money-display {
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+#next-day-button {
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 2px solid #5a3825;
+    background-color: #f0e4d0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 /* TODO: Fazer sprites para os tile e plantas */
 .tile {
     background-color: #a16642;
@@ -59,6 +77,40 @@
 
 .tool-button.active {
     background-color: #a16642;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#seed-selection {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.seed-button {
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 2px solid #5a3825;
+    background-color: #f0e4d0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.seed-button.active {
+    background-color: #a16642;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.seed-button > p {
+    font-size: 20px;
+    border: 2px solid #5a3825;
+    background-color: #ebd5b0;
+    border-radius: 4px;
+}
+
+.seed-button.active > p {
+    background-color: #83583e;
     color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }

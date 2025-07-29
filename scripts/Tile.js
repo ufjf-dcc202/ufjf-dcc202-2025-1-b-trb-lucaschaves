@@ -10,6 +10,8 @@ class Tile {
         // Da um id unico para eles baseado nas coords
         this.element.id = `tile-${x}-${y}`;
         this.element.addEventListener('click', () => onClickCallback(this));
+        // Planta crescendo neste tile
+        this.plant = null;
     }
 
     // Metodo para atualizar estados e aparencia do tile

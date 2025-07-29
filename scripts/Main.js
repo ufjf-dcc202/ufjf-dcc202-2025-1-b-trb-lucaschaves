@@ -3,9 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const gameState = {
         selectedTool: TOOLS.SHOVEL,
+        selectedSeed: null,
+        money: 100
     };
 
     function handleTileClick(tile) {
+        // Lógica da Mão: Plantio
+        if (gameState.selectedTool === TOOLS.HAND) {
+            if (tile.state === TILE_STATES.TILLED && !tile.plant && gameState.selectedSeed) {
+                const newPlant = new Plant(gameState.selectedSeed);
+                tile.plant = newPlant;
+                tile.state = TILE_STATES.PLANTED;
+            }
+        }
+
         // Lógica da Pá: Limpar os tiles
         if (gameState.selectedTool === TOOLS.SHOVEL) {
             if (tile.state === TILE_STATES.ROCK || tile.state === TILE_STATES.WEED || tile.state === TILE_STATES.PLANTED) {
@@ -21,13 +32,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Lógica do Regador: Aguar o solo arado
         else if (gameState.selectedTool === TOOLS.WATERING_CAN) {
-            if (tile.state === TILE_STATES.TILLED) {
+            if (tile.state === TILE_STATES.TILLED || tile.state === TILE_STATES.PLANTED) {
                 tile.state = TILE_STATES.WATERED;
             }
         }
         
         tile.update();
     }
+
+    const seedButtons = document.querySelectorAll('.seed-button');
+
+    seedButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const plantKey = button.dataset.seed;
+
+            if (gameState.selectedSeed === plantKey) {
+                gameState.selectedSeed = null;
+                button.classList.remove('active');
+            } else {
+                seedButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                gameState.selectedSeed = plantKey;
+            }
+        });
+    });
 
     const toolButtons = document.querySelectorAll('.tool-button');
     toolButtons.forEach(button => {
