@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
             toolButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             gameState.selectedTool = button.dataset.tool;
+            const iconPath = `/public/${button.dataset.tool}.ico`; 
+            console.log("Path to icon = ", iconPath);
+            gridContainer.style.cursor = `url('${iconPath}')`;
         });
     });
 

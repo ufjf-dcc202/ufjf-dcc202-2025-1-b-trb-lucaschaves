@@ -41,4 +41,7 @@ A avaliação vai constar de:
 ---
 
 Créditos:
-- Fonte [KiwiSoda](https://fontenddev.com/fonts/kiwi-soda/)
+
+Fontes: [KiwiSoda](https://fontenddev.com/fonts/kiwi-soda/), [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
+
+Cursor: [Kenney](https://kenney.nl/assets/cursor-pixel-pack)

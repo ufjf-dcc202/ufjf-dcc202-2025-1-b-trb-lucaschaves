@@ -11,18 +11,31 @@
 * {
     background-color: aliceblue;
     font-family: PressStart2P;
-    color:#2b2424
+    color:#5a3825;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-family: KiwiSoda;
+    margin-bottom: 0;
 }
 
 h2 {
     font-size: 2.5rem;
     font-family: KiwiSoda;
     margin-bottom: 10px;
+}
+
+body {
+    cursor: url('./public/cursor.ico'), default;
+}
+
+button {
+    cursor: url('./public/cursor.ico'), default;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 #game-container {
@@ -44,7 +57,6 @@ h2 {
 
 #money-display {
     font-size: 3rem;
-    text-decoration: underline;
 }
 
 #next-day-button {
@@ -53,7 +65,6 @@ h2 {
     border: 4px solid #5a3825;
     background-color: #f0e4d0;
     border-radius: 16px;
-    cursor: pointer;
 }
 
 hr {
@@ -94,13 +105,19 @@ hr {
     border: 4px solid #5a3825;
     background-color: #f0e4d0;
     border-radius: 16px;
-    cursor: pointer;
 }
 
 /*Fix pro icone da enxada que é mto pequeno*/
-#sickle-icon {
+.tool-button > span {
     font-size: 1.7rem;
     background-color: #f0e4d0;
+}
+
+/*Fix pro icone da enxada que é mto pequeno*/
+.tool-button.active > span {
+    font-size: 1.7rem;
+    background-color: #a16642;
+    color: white;
 }
 
 .tool-button.active {
@@ -121,7 +138,6 @@ hr {
     border: 4px solid #5a3825;
     background-color: #f0e4d0;
     border-radius: 16px;
-    cursor: pointer;
 }
 
 .seed-button.active {
