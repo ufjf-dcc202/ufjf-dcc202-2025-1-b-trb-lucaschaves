@@ -58,17 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const toolButtons = document.querySelectorAll('.tool-button');
+
+    function changeCursor() {
+        const allToolClasses = Object.values(TOOLS).map(tool => `cursor-${tool}`);
+        gridContainer.classList.remove(...allToolClasses);
+        if (gameState.selectedTool) {
+            gridContainer.classList.add(`cursor-${gameState.selectedTool}`);
+            console.log("tool: ", gameState.selectedTool);
+            console.log(`cursor-${gameState.selectedTool}`);
+        }
+    };
+
     toolButtons.forEach(button => {
         button.addEventListener('click', () => {
             toolButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             gameState.selectedTool = button.dataset.tool;
-            const iconPath = `/public/${button.dataset.tool}.ico`; 
-            console.log("Path to icon = ", iconPath);
-            gridContainer.style.cursor = `url('${iconPath}')`;
+            changeCursor();
         });
     });
 
+    changeCursor();
 
     const GRID_SIZE = 12;
 
