@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameState = {
         selectedTool: TOOLS.SHOVEL,
         selectedSeed: null,
-        money: 100
+        money: 100,
+        day: 0
     };
 
     function handleTileClick(tile) {
+        const tool = gameState.selectedTool;
         // Lógica da Mão: Plantio
-        if (gameState.selectedTool === TOOLS.HAND) {
+        if (tool === TOOLS.HAND) {
             if (tile.state === TILE_STATES.TILLED && !tile.plant && gameState.selectedSeed) {
                 const newPlant = new Plant(gameState.selectedSeed);
                 tile.plant = newPlant;
@@ -18,22 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Lógica da Pá: Limpar os tiles
-        if (gameState.selectedTool === TOOLS.SHOVEL) {
-            if (tile.state === TILE_STATES.ROCK || tile.state === TILE_STATES.WEED || tile.state === TILE_STATES.PLANTED) {
+        if (tool === TOOLS.SHOVEL) {
+            if (tile.state === TILE_STATES.ROCK || tile.state === TILE_STATES.WEED || tile.state === TILE_STATES.PLANTED || tile.state === TILE_STATES.WATERED) {
                 tile.state = TILE_STATES.EMPTY;
             }
         } 
         // Lógica da Enxada: Prepara o solo
-        else if (gameState.selectedTool === TOOLS.HOE) {
+        else if (tool === TOOLS.HOE) {
             if (tile.state === TILE_STATES.EMPTY) {
                 tile.state = TILE_STATES.TILLED;
             }
         }
 
         // Lógica do Regador: Aguar o solo arado
-        else if (gameState.selectedTool === TOOLS.WATERING_CAN) {
-            if (tile.state === TILE_STATES.TILLED || tile.state === TILE_STATES.PLANTED) {
+        else if (tool === TOOLS.WATERING_CAN) {
+            if (tile.state === TILE_STATES.PLANTED) {
                 tile.state = TILE_STATES.WATERED;
+                tile.plant.isWatered = true;
             }
         }
         
@@ -79,6 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     changeCursor();
+
+    const nextDayButton = document.getElementById('next-day-button');
+
+    function passDay() {
+        gameState.day++;
+        gameGrid.tiles.flat().forEach(tile => {
+            if (tile.state === TILE_STATES.WATERED) {
+                tile.state = TILE_STATES.PLANTED;
+            }
+
+            if (tile.plant) {
+                const survived = tile.plant.passDay();
+                if (!survived) {
+                    console.log(`Planta ${tile.plant.name} (${tile.x}, ${tile.y}) morreu`);
+                    tile.plant = null;
+                    tile.state = TILE_STATES.EMPTY;
+                }
+            }
+            tile.update();
+        });
+        console.log("Novo dia: ", gameState.day);
+    }
+
+    nextDayButton.addEventListener('click', passDay);
 
     const GRID_SIZE = 12;
 

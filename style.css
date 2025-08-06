@@ -110,6 +110,24 @@ hr {
     background-color: #58331d;
 }
 
+.tile.planted {
+    /* Placeholder genérico */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%234caf50" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>');
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.tile.planted.stage-1 { background-size: 50%; }
+.tile.planted.stage-2 { background-size: 60%; }
+.tile.planted.stage-3 { background-size: 70%; }
+.tile.planted.stage-4 { background-size: 80%; }
+
+.tile.planted.stage-5 {
+    background-size: 90%;
+    background-color: #6d8c54;
+}
+
 #tool-selection {
     display: flex;
     gap: 10px;

@@ -17,13 +17,22 @@ class Tile {
     // Metodo para atualizar estados e aparencia do tile
     // com a passagem do tempo
     update() {
-        const states = Object.values(TILE_STATES);
-        // Remove qualquer estado que estiver associado ao tile
-        this.element.classList.remove(...states);
+        const allStates = Object.values(TILE_STATES);
+        this.element.classList.remove(...allStates, 'watered');
+        for (let i = 0; i <= 5; i++) { // Limpa até 5 estágios, max atual no jogo
+            this.element.classList.remove(`stage-${i}`);
+        }
 
-        // Adiciona novo estado
         if (this.state !== TILE_STATES.EMPTY) {
             this.element.classList.add(this.state);
+        }
+
+        if (this.plant) {
+            this.element.classList.add(`stage-${this.plant.currStage}`);
+            
+            if (this.plant.isWatered) {
+                this.element.classList.add('watered');
+            }
         }
     }
 };
