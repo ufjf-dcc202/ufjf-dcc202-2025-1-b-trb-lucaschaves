@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'KiwiSoda';
-    src: url('/public/KiwiSoda.ttf');
+    src: url('./public/KiwiSoda.ttf');
 }
 
 @font-face {
     font-family: 'PressStart2P';
-    src: url('/public/PressStart2P.ttf');
+    src: url('./public/PressStart2P.ttf');
 }
 
 * {
@@ -48,23 +48,23 @@ button:hover {
 }
 
 #grid-container.cursor-hand {
-    cursor: url('../public/hand.png'), auto;
+    cursor: url('./public/hand.png'), auto;
 }
 
 #grid-container.cursor-hoe {
-    cursor: url('../public/hoe.png'), auto;
+    cursor: url('./public/hoe.png'), auto;
 }
 
 #grid-container.cursor-shovel {
-    cursor: url('../public/shovel.png'), auto;
+    cursor: url('./public/shovel.png'), auto;
 }
 
 #grid-container.cursor-watering-can {
-    cursor: url('../public/watering-can.png'), auto;
+    cursor: url('./public/watering-can.png'), auto;
 }
 
 #grid-container.cursor-sickle {
-    cursor: url('../public/sickle.png'), auto;
+    cursor: url('./public/sickle.png'), auto;
 }
 
 #money-text {
