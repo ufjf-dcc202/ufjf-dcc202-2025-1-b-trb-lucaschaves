@@ -28,6 +28,7 @@ const PLANT_DATA = {
         name: 'Feijão',
         growthStages: 3, // 3 fases de crescimento 
         price: 10,
+        sellValue: 15,
         harvestValue: 30,
         icon: '🫘'
     },
@@ -35,6 +36,7 @@ const PLANT_DATA = {
         name: 'Tomate',
         growthStages: 4,
         price: 15,
+        sellValue: 20,
         harvestValue: 50,
         icon: '🍅'
     },
@@ -42,8 +44,9 @@ const PLANT_DATA = {
         name: 'Mandioca',
         growthStages: 5,
         price: 25,
+        sellValue: 30,
         harvestValue: 100,
-        icon: '🌱'
+        icon: '🫚'
     },
 }
 
