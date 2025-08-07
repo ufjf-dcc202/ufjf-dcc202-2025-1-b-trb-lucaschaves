@@ -88,7 +88,6 @@ hr {
     border-top: 10px solid #5a3825;
 }
 
-/* TODO: Fazer sprites para os tile e plantas */
 .tile {
     background-color: #a16642;
     border: 1px solid #754a31;
@@ -146,13 +145,12 @@ hr {
     border-radius: 16px;
 }
 
-/*Fix pro icone da enxada que é mto pequeno*/
+/*Fix pro icone da foice que é mto pequeno*/
 .tool-button > span {
     font-size: 1.7rem;
     background-color: #f0e4d0;
 }
 
-/*Fix pro icone da enxada que é mto pequeno*/
 .tool-button.active > span {
     font-size: 1.7rem;
     background-color: #a16642;
