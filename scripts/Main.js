@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             tile.update();
         });
-        console.log("Novo dia: ", gameState.day);
+        const dayText = document.getElementById("day-text");
+        dayText.textContent = `Dia ${gameState.day}`;
     }
 
     nextDayButton.addEventListener('click', passDay);
