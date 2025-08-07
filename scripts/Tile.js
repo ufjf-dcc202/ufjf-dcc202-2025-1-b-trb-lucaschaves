@@ -23,16 +23,28 @@ class Tile {
             this.element.classList.remove(`stage-${i}`);
         }
 
+        this.element.textContent = '';
+
         if (this.state !== TILE_STATES.EMPTY) {
             this.element.classList.add(this.state);
         }
 
         if (this.plant) {
             this.element.classList.add(`stage-${this.plant.currStage}`);
+
+            if (this.plant.currStage === 0) {
+                this.element.textContent = "🥜" // "Semente" kkkk
+            } else if (this.plant.currStage < this.plant.maxStage) {
+                this.element.textContent = "🌱";
+            } else {
+                this.element.textContent = PLANT_DATA[this.plant.type].icon;
+            }
             
             if (this.plant.isWatered) {
                 this.element.classList.add('watered');
             }
+        } else {
+            this.element.textContent = '';
         }
     }
 };

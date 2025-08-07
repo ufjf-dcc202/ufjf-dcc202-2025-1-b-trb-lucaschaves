@@ -6,6 +6,8 @@ class Plant {
         this.currStage = 0;
         this.maxStage = data.growthStages;
         this.isWatered = false;
+        this.price = data.price;
+        this.sellValue = data.sellValue;
     }
 
     passDay() {

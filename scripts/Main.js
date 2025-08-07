@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameState = {
         selectedTool: TOOLS.SHOVEL,
         selectedSeed: null,
-        money: 100,
+        money: 50,
         day: 0
     };
 
@@ -16,12 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newPlant = new Plant(gameState.selectedSeed);
                 tile.plant = newPlant;
                 tile.state = TILE_STATES.PLANTED;
+                gameState.money -= tile.plant.price;
+                updateMoneyDisplay();
             }
         }
 
         // Lógica da Pá: Limpar os tiles
         if (tool === TOOLS.SHOVEL) {
             if (tile.state === TILE_STATES.ROCK || tile.state === TILE_STATES.WEED || tile.state === TILE_STATES.PLANTED || tile.state === TILE_STATES.WATERED) {
+                tile.element.textContent = '';
+                tile.plant = null;
                 tile.state = TILE_STATES.EMPTY;
             }
         } 
@@ -39,9 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 tile.plant.isWatered = true;
             }
         }
+
+        // Lógica da Foice: Colher e ganhar dinheiro
+        else if (tool === TOOLS.SICKLE) {
+            if (tile.state === TILE_STATES.PLANTED) {
+                if (tile.plant.currStage === tile.plant.maxStage) {
+                    gameState.money += tile.plant.sellValue;
+                    tile.state = TILE_STATES.EMPTY
+                    tile.plant = null;
+                    updateMoneyDisplay();
+                }
+            }
+        }
         
         tile.update();
     }
+
+    function updateMoneyDisplay() {
+        const moneyDisplaySpan = document.getElementById('money-display');
+        moneyDisplaySpan.textContent = `${gameState.money}`;
+    };
 
     const seedButtons = document.querySelectorAll('.seed-button');
 
@@ -102,7 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             tile.update();
         });
-        console.log("Novo dia: ", gameState.day);
+        const dayText = document.getElementById("day-text");
+        dayText.textContent = `Dia ${gameState.day}`;
     }
 
     nextDayButton.addEventListener('click', passDay);
